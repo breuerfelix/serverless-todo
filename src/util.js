@@ -1,3 +1,15 @@
+import { S3Client, ListBucketsCommand } from "@aws-sdk/client-s3";
+
+const client = new S3Client({
+	region: "",
+	endpoint: "",
+	credentials: {
+		accessKeyId: "",
+		secretAccessKey: "",
+	},
+	forcePathStyle: true,
+})
+
 export function uuid() {
 	let uuid = '';
 	for (let i=0; i<32; i++) {
@@ -14,8 +26,12 @@ export function pluralize(count, word) {
 	return count === 1 ? word : word + 's';
 }
 
-export function store(namespace, data) {
+export async function store(namespace, data) {
 	if (data) return localStorage[namespace] = JSON.stringify(data);
+
+	const command = new ListBucketsCommand({})
+	const d = await client.send(command)
+	console.log(d)
 
 	let store = localStorage[namespace];
 	return store && JSON.parse(store) || [];

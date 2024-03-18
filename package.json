@@ -7,6 +7,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@aws-sdk/client-s3": "^3.523.0",
 		"classnames": "^2.5.1",
 		"preact": "^10.13.1",
 		"preact-iso": "^2.4.0",

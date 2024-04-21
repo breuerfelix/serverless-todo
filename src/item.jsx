@@ -5,7 +5,7 @@ const ESCAPE_KEY = 27;
 const ENTER_KEY = 13;
 
 export default class TodoItem extends Component {
-	handleSubmit = () => {
+			handleSubmit = () => {
 		let { onSave, onDestroy, todo } = this.props,
 			val = this.state.editText.trim();
 		if (val) {

@@ -20,7 +20,7 @@ export default class App extends Component {
 	}
 
 	handleRoute() {
-		let nowShowing = String(location.hash||'').split('/').pop();
+		let nowShowing = String(location.hash || '').split('/').pop();
 		if (!FILTERS[nowShowing]) {
 			nowShowing = 'all';
 		}
@@ -28,7 +28,7 @@ export default class App extends Component {
 	}
 
 	handleNewTodoKeyDown = e => {
-		if (e.keyCode!==ENTER_KEY) return;
+		if (e.keyCode !== ENTER_KEY) return;
 		e.preventDefault();
 
 		let val = this.state.newTodo.trim();
@@ -72,7 +72,7 @@ export default class App extends Component {
 		this.model.clearCompleted();
 	};
 
-	render({ }, { nowShowing=ALL_TODOS, newTodo, editing }) {
+	render({ }, { nowShowing = ALL_TODOS, newTodo, editing }) {
 		let { todos } = this.model,
 			shownTodos = todos.filter( FILTERS[nowShowing] ),
 			activeTodoCount = todos.reduce( (a, todo) => a + (todo.completed ? 0 : 1), 0),

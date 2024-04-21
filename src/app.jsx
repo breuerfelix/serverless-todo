@@ -20,7 +20,7 @@ export default class App extends Component {
 	}
 
 	handleRoute() {
-		let nowShowing = String(location.hash||'').split('/').pop();
+		let nowShowing = String(location.hash || '').split('/').pop();
 		if (!FILTERS[nowShowing]) {
 			nowShowing = 'all';
 		}
